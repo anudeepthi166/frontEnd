@@ -1,1 +1,2 @@
-# frontEnd for toDo App with Redux Store
+# frontEnd for toDo App 
+
