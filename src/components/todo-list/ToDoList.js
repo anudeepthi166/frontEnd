@@ -13,6 +13,7 @@ function ToDoList() {
   //delete Task
   const deleteTask = (index) => {
     //dispatch action object
+    console.log("Deleting Todo Task");
     dispatch(deleteTodo(index));
   };
   return (

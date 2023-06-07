@@ -1,19 +1,45 @@
 import "./App.css";
-import AddToDo from "./components/add-todo/AddToDo";
-import ToDoList from "./components/todo-list/ToDoList";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+// import components
+import Login from "./components/login/Login";
+import SignUp from "./components/sign-up/SignUp";
+import RootLayout from "./components/root-layout/RootLayout";
+import Admin from "./components/admin/Admin";
+import User from "./components/user/User";
 
 function App() {
+  const browserRouterObj = createBrowserRouter([
+    {
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        {
+          path: "/login",
+          element: <Login />,
+        },
+        {
+          path: "/",
+          element: <Login />,
+        },
+        {
+          path: "/sign-up",
+          element: <SignUp />,
+        },
+        {
+          path: "/admin",
+          element: <Admin />,
+        },
+        {
+          path: "/user",
+          element: <User />,
+        },
+      ],
+    },
+  ]);
   return (
     <div className="App">
-      <h1 className="text-success mt-3">To Do App</h1>
-      <div className="row">
-        <div className="col-md-6">
-          <ToDoList />
-        </div>
-        <div className="col-md-6">
-          <AddToDo />
-        </div>
-      </div>
+      <RouterProvider router={browserRouterObj} />
     </div>
   );
 }
